@@ -1,12 +1,3 @@
-# go-getfshare
-
-## Installation 
-```
-go get github.com/M15t/go-getfshare
-```
-
-## Quick Start
-```
 package main
 
 import (
@@ -38,8 +29,3 @@ func main() {
 
 	log.Printf("=== %+v", link)
 }
-
-```
-
-## License
-go-getfshare is licensed under the MIT.
