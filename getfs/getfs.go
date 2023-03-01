@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 
-	"gopkg.in/resty.v1"
+	resty "github.com/go-resty/resty/v2"
 )
 
 const (
@@ -72,6 +72,7 @@ func NewService(userEmail, password string) *Service {
 
 // Login to fshare
 func (s *Service) Login() error {
+	resty := resty.New()
 	// resty.SetDebug(true)
 	resty.SetHostURL(url)
 	resp, err := resty.R().SetHeaders(map[string]string{
@@ -100,6 +101,7 @@ func (s *Service) Login() error {
 
 // GetFileInfo of file on fshare by url
 func (s *Service) GetFileInfo(fileURL string) (*GetFileInfoResp, error) {
+	resty := resty.New()
 	// resty.SetDebug(true)
 	resty.SetHostURL(url)
 	resp, err := resty.R().SetHeaders(map[string]string{
@@ -120,6 +122,7 @@ func (s *Service) GetFileInfo(fileURL string) (*GetFileInfoResp, error) {
 
 // GetLink of file on fshare by url
 func (s *Service) GetLink(fileURL string) (*GetLinkResp, error) {
+	resty := resty.New()
 	// resty.SetDebug(true)
 	resty.SetHostURL(url)
 	resp, err := resty.R().SetHeaders(map[string]string{
